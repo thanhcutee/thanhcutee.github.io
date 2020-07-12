@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tính Lãi</title>
+    <script src="https://code.jquery.com/jquery-latest.js"></script>
+    <script>
+        function comfirm(){
+            var  thang = new Number( $('#thang').val());
+            var    goc = new Number( $("#goc").val());
+           var a=thang*(goc*0.02);
+           
+           document.form.textview.value = numberWithCommas(a);
+           document.form.t2.value = numberWithCommas(goc);
+           
+        }
+        function numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+    </script>
+    <style>
+        .main{
+            align-self: start;
+            align-items: center;
+            margin-left: 50%;
+            margin-top: 100px;
+            margin-bottom: auto;
+            margin-right: auto;
+            font-size: 20px;
+        }
+      .button{
+        cursor: pointer;
+        width: 80px;
+        height: 40px;
+        background-color: darkblue;
+        color: darkgrey;
+      }
+      .button:hover{
+          background-color: bisque;
+      }
+      body{
+          background-attachment: fixed;
+          background-color: violet;
+      }
+      #textbox{
+          padding: 3px;
+          width: 123px;
+      }
+      .box{
+        width: 200px;
+            height: 20px;
+            margin: 5px;
+            padding: 5px;
+            font-size: 24px;
+      }
+    </style>
+</head>
+<body>
+    <div class="main" name="main">
+        <form name="form" action="#">
+            <div class="t" id="textbox">
+                <input class="box" style="border-color: darkblue;"  id="thang" type="textbox"  placeholder=" Nhập tháng"> <p>  &uarr; Nhập Tháng.</p>
+            </div>
+            <div  id="textbox">
+                <input class="box" name="t2" style="border-color: darkblue;" id="goc" type="text"  placeholder=" Nhập Gốc"> <p> &uarr; Nhập số tiền gốc.</p>
+            </div>
+                <tr><td><input class="button" type="button" value="Tính" onclick="comfirm()"></td></tr>
+            <br/>
+            <br/>
+                <input type="textview"  style="border-color: darkblue;" class="box" name="textview" placeholder="Kết quả">
+        </form>
+
+    </div>
+
+</body>
+<footer style="text-align: center; margin-top: 50px;">&hearts; Thanh Cute &hearts; </footer>
+</html>
