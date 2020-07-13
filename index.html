@@ -10,10 +10,21 @@
             var  thang = new Number( $('#thang').val());
             var    goc = new Number( $("#goc").val());
            var a=thang*(goc*0.02);
+           if(document.getElementById('cb1').checked){
            
-           document.form.textview.value = numberWithCommas(a);
+           document.form.lai.value = numberWithCommas(a);
            document.form.t2.value = numberWithCommas(goc);
-           
+           document.form.ketqua.value = numberWithCommas(a+goc);
+           }else if(document.getElementById('cb2').checked){
+            var a=thang*(goc*0.03);
+            document.form.lai.value = numberWithCommas(a);
+           document.form.t2.value = numberWithCommas(goc);
+           document.form.ketqua.value = numberWithCommas(a+goc);
+           }else{
+            document.form.lai.value = numberWithCommas(a);
+           document.form.t2.value = numberWithCommas(goc);
+           document.form.ketqua.value = numberWithCommas(a+goc);
+           }
         }
         function numberWithCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -23,54 +34,65 @@
         .main{
             align-self: start;
             align-items: center;
-            margin-left:100px;
+            margin-left: 50%;
             margin-top: 100px;
             margin-bottom: auto;
             margin-right: auto;
             font-size: 20px;
         }
       .button{
-        cursor: pointer;
-        width: 80px;
-        height: 40px;
-        background-color: darkblue;
-        color: darkgrey;
+            cursor: pointer;
+            width: 80px;
+            height: 40px;
+            background-color: yellow;
+            color: black;
+            font-size: 18px;
+            border-radius: 45deg;
+            border-color: white;
       }
       .button:hover{
-          background-color: bisque;
+            background-color: bisque;
       }
       body{
-          background-attachment: fixed;
-          background-color: violet;
+            background-attachment: fixed;
+            background-color: hotpink;
       }
       #textbox{
-          padding: 3px;
-          width: 123px;
+            padding: 3px;
+            width: 123px;
       }
       .box{
-        width: 200px;
+            width: 200px;
             height: 20px;
             margin: 5px;
             padding: 5px;
             font-size: 24px;
-      }
+        }
+        .cbox{
+            margin-top: 20px;
+            width: 40px;
+            height: 40px;
+            margin-bottom: 20px;
+        }
     </style>
 </head>
 <body>
     <div class="main" name="main">
         <form name="form" action="#">
             <div class="t" id="textbox">
-                <input class="box" style="border-color: darkblue;"  id="thang" type="textbox"  placeholder=" Nhập tháng"> <p>  &uarr; Nhập số Tháng.</p>
+                <input class="box" style="border-color: darkblue;"  id="thang" type="textbox"  placeholder=" Nhập tháng"> <p>  &uarr; Nhập Tháng.</p>
             </div>
             <div  id="textbox">
                 <input class="box" name="t2" style="border-color: darkblue;" id="goc" type="text"  placeholder=" Nhập Gốc"> <p> &uarr; Nhập số tiền gốc.</p>
             </div>
                 <tr><td><input class="button" type="button" value="Tính" onclick="comfirm()"></td></tr>
             <br/>
+            <tr><input name="rd" class="cbox" type="radio" value="1" id="cb1">2%</tr> 
+            <tr><input name="rd" class="cbox" type="radio" value="1" id="cb2">3%</tr>
             <br/>
-                <input type="textview"  style="border-color: darkblue;" class="box" name="textview" placeholder="Kết quả">
+                <input type="textview"  style="border-color: darkblue;" class="box" name="lai" placeholder="Kết quả">&larr;Lãi
+                <input type="textview"  style="border-color: darkblue;" class="box" name="ketqua" placeholder="Lãi cộng gốc.">&larr;Gốc + Lãi
         </form>
-
     </div>
 
 </body>
