@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,30 +11,33 @@
             var    goc = new Number( $("#goc").val());
            var a=thang*(goc*0.02);
            if(document.getElementById('cb1').checked){
-           
-           document.form.lai.value = numberWithCommas(a);
-           document.form.t2.value = numberWithCommas(goc);
-           document.form.ketqua.value = numberWithCommas(a+goc);
+                document.form.lai.value = numberWithCommas(a+" đ");
+                document.form.goc.value = numberWithCommas(goc);
+                document.form.ketqua.value = numberWithCommas(a+goc+" đ");
            }else if(document.getElementById('cb2').checked){
-            var a=thang*(goc*0.03);
-            document.form.lai.value = numberWithCommas(a);
-           document.form.t2.value = numberWithCommas(goc);
-           document.form.ketqua.value = numberWithCommas(a+goc);
+                var a=thang*(goc*0.03);
+                document.form.lai.value = numberWithCommas(a+" đ");
+                document.form.goc.value = numberWithCommas(goc);
+                document.form.ketqua.value = numberWithCommas(a+goc+" đ");
            }else{
-            document.form.lai.value = numberWithCommas(a);
-           document.form.t2.value = numberWithCommas(goc);
-           document.form.ketqua.value = numberWithCommas(a+goc);
+                document.form.lai.value = numberWithCommas(a+" đ");
+                document.form.goc.value = numberWithCommas(goc);
+                document.form.ketqua.value = numberWithCommas(a+goc+" đ");
            }
         }
         function numberWithCommas(x) {
-    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+}
+
+    function numberWithOutCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, "");
 }
     </script>
     <style>
         .main{
             align-self: start;
             align-items: center;
-            margin-left: 10px;
+            margin-left: 50%;
             margin-top: 100px;
             margin-bottom: auto;
             margin-right: auto;
@@ -55,7 +58,7 @@
       }
       body{
             background-attachment: fixed;
-            background-color: hotpink;
+            background-color: cadetblue;
       }
       #textbox{
             padding: 3px;
@@ -74,24 +77,26 @@
             height: 40px;
             margin-bottom: 20px;
         }
+        p{
+            font-size: 15.6px;
+        }
     </style>
 </head>
 <body>
     <div class="main" name="main">
         <form name="form" action="#">
             <div class="t" id="textbox">
-                <input class="box" style="border-color: darkblue;"  id="thang" type="textbox"  placeholder=" Nhập số tháng"> <p>  &uarr; Nhập Số Tháng.</p>
+                <input class="box" style="border-color: darkblue;"  id="thang" type="textbox"  placeholder=" Nhập tháng"> <p>  &uarr; Nhập Tháng.</p>
             </div>
             <div  id="textbox">
-                <input class="box" name="t2" style="border-color: darkblue;" id="goc" type="text"  placeholder=" Nhập Gốc"> <p> &uarr; Nhập số tiền gốc.</p>
+                <input class="box" name="goc" style="border-color: darkblue;" id="goc" type="text"  placeholder=" Nhập Gốc"> <p> &uarr; Nhập số tiền gốc.</p>
             </div>
                 <tr><td><input class="button" type="button" value="Tính" onclick="comfirm()"></td></tr>
             <br/>
-            <tr><input name="rd" class="cbox" type="radio" value="1" id="cb1">2%</tr> 
-            <tr><input name="rd" class="cbox" type="radio" value="1" id="cb2">3%</tr>
+                <tr><input name="rd" class="cbox" type="radio" value="1" id="cb1">2%</tr> 
+                <tr><input name="rd" class="cbox" type="radio" value="1" id="cb2">3%</tr>
             <br/>
                 <input type="textview"  style="border-color: darkblue;" class="box" name="lai" placeholder="Kết quả">&larr;Lãi
-            <br/>
                 <input type="textview"  style="border-color: darkblue;" class="box" name="ketqua" placeholder="Lãi cộng gốc.">&larr;Gốc + Lãi
         </form>
     </div>
